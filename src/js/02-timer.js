@@ -41,12 +41,13 @@ const onStartBtn = () => {
   refs.input.setAttribute("disabled", "true");
   timerId = setInterval(() => {
     const resultTime = convertMs(chosenDate - Date.now());
-    markupChange(resultTime);
-    
-    if (resultTime === { days: 0, hours: 0, minutes: 0, seconds: 0 }) {
+       
+    const deltaTime = chosenDate - Date.now();
+    if (deltaTime <= 0 ) {
       clearInterval(timerId);
-    }
-     
+      return;
+  }
+     markupChange(resultTime); 
   }, 1000);
     
 }
