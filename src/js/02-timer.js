@@ -1,6 +1,6 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
-import Notiflix from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const startBtn = document.querySelector('[data-start]');
 const refs = {
@@ -34,10 +34,9 @@ function onClose(selectedDates) {
 
 const onStartBtn = () => {
     setInterval((selectedDates) => {
-        result = convertMs(); 
-        /* refs.forEach(function (days, hours, minutes, seconds) {
-  console.log(`${days}:${hours}:${minutes}:${seconds}`); 
-});*/
+       convertMs(); 
+      selectedDates[0] = ms;
+      result = Object.values(refs);
      
   }, 1000);
     
