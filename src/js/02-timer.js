@@ -27,7 +27,7 @@ let chosenDate = Date.now();
 
 function onClose(selectedDates) {    
     if (selectedDates[0] < options.defaultDate) {
-        return Notiflix.Notify.info('Please choose a date in the future');
+        return Notiflix.Notify.failure('Please choose a date in the future');
     } else {
       refs.startBtn.removeAttribute("disabled");
       chosenDate = selectedDates[0];
